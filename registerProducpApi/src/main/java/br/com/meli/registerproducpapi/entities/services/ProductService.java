@@ -4,7 +4,10 @@ import br.com.meli.registerproducpapi.entities.dto.ProductDto;
 import br.com.meli.registerproducpapi.entities.models.ProductModel;
 import br.com.meli.registerproducpapi.entities.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -13,9 +16,10 @@ public class ProductService {
     private ProductRepository productRepository;
 
 
-    public String connectionTest() {
-        return "Hello World!";
+    public List<ProductModel> getProduct() {
+        return productRepository.findAll();
     }
+
 
     public String postProduct(ProductDto productDto) {
 
@@ -23,7 +27,6 @@ public class ProductService {
 
         ProductModel produto = new ProductModel();
 
-        produto.setId(productDto.getIdproduto());
         produto.setNome(productDto.getNome());
         produto.setValor(productDto.getValor());
 
@@ -31,21 +34,18 @@ public class ProductService {
         return "Produto salvo com sucesso!";
     }
 
-    public String delete(ProductDto productDto) {
-        ProductModel produto = new ProductModel();
+    public void delete(Long id) {
 
-        produto.setId(productDto.getIdproduto());
-
-        productRepository.delete(produto);
-        return "Produto deletado com sucesso!";
+        if (productRepository.existsById(id)) {
+            productRepository.deleteById(id);
+        }
     }
 
-    public String put(ProductDto productDto) {
-        ProductModel produto = new ProductModel();
 
-        produto.setId(productDto.getIdproduto());
 
-        productRepository.delete(produto);
+    public String put(Long id, ProductDto productDto) {
+
+        productRepository.findById(id);
         return "Produto atualizado com sucesso!";
     }
 

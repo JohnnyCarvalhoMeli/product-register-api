@@ -1,31 +1,29 @@
 package br.com.meli.registerproducpapi.entities.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "mydb")
+@Table(name = "product")
 public class ProductModel {
 
     @Id
-    @Column(name = "idProduto")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private Long id_produto;
 
-    @Column
+    @Column(name = "nome")
     private String nome;
 
-    @Column
+    @Column(name = "valor")
     private Double valor;
 
 
-    public Long getId() {
-        return id;
+    public Long getId_produto() {
+        return id_produto;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_produto(Long id) {
+        this.id_produto = id;
     }
 
     public String getNome() {

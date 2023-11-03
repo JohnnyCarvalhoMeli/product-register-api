@@ -1,9 +1,18 @@
-package br.com.meli.registerproducpapi.entities.dto;
+package br.com.meli.registerproducpapi.entities.Entity;
 
-public class ProductDto {
+import jakarta.persistence.*;
 
+@Entity
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(nullable = false)
     private String nome;
+
+    @Column(nullable = false)
     private Double valor;
 
 
