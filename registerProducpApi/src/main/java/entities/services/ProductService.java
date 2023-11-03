@@ -23,6 +23,8 @@ public class ProductService {
 
     public String postProduct(ProductDto productDto) {
 
+        System.out.println("Entoru aqui 1");
+
         ProductModel produto = new ProductModel();
 
         produto.setId(productDto.getIdproduto());
