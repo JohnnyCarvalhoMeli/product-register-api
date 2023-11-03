@@ -1,14 +1,10 @@
-package entities.services;
+package br.com.meli.registerproducpapi.entities.services;
 
-import entities.dto.ProductDto;
-import entities.models.ProductModel;
-import entities.repositories.ProductRepository;
+import br.com.meli.registerproducpapi.entities.dto.ProductDto;
+import br.com.meli.registerproducpapi.entities.models.ProductModel;
+import br.com.meli.registerproducpapi.entities.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Service
 public class ProductService {

@@ -1,4 +1,4 @@
-package entities.models;
+package br.com.meli.registerproducpapi.entities.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package entities.dto;
+package br.com.meli.registerproducpapi.entities.dto;
 
 public class ProductDto {
 

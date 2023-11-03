@@ -1,9 +1,8 @@
-package entities.controllers;
+package br.com.meli.registerproducpapi.entities.controllers;
 
-import entities.dto.ProductDto;
-import entities.services.ProductService;
+import br.com.meli.registerproducpapi.entities.dto.ProductDto;
+import br.com.meli.registerproducpapi.entities.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
