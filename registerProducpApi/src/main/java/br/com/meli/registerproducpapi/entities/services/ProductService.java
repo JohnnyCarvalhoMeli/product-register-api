@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -45,8 +46,14 @@ public class ProductService {
 
     public String put(Long id, ProductDto productDto) {
 
-        productRepository.findById(id);
-        return "Produto atualizado com sucesso!";
+        Optional<ProductModel> result = productRepository.findById(id);
+        if (result.isPresent()) {
+            ProductModel product = result.get();
+            product.setNome(productDto.getNome());
+            product.setValor((productDto.getValor()));
+            productRepository.save(product);
+            return "Produto atualizado com sucesso!";
+        }
+        return "Produto não encontrado";
     }
-
 }
